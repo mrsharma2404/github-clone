@@ -46,6 +46,7 @@
   text-align: left;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+  word-break: break-word;
   @media only screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -60,10 +61,15 @@
   gap: 10px;
   margin-top: 10px;
 }
-.number {
+.issueNumber {
   font-size: 14px;
   font-weight: 400;
-  color: #586069;
+  color: #8e8e8e;
+  font-family: Arial, Helvetica, sans-serif;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 .labelsWrapper {
   display: flex;
