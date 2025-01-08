@@ -19,7 +19,8 @@
   padding: 10px 15px;
   text-align: flex-start;
   border-bottom: 1px solid #e0e0e0;
-  height: 62px;
+  min-height: 62px;
+  height: auto;
 }
 .issueName {
   font-size: 16px;
