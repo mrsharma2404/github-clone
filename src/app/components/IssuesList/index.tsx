@@ -10,7 +10,7 @@ interface Issue {
   id: number;
   number: number;
   title: string;
-  labels: { name: string; color: string }[];
+  labels: { name: string; color: string; id: number }[];
 
   // Add other properties if needed from the API response
 }
@@ -75,9 +75,9 @@ function IssuesList() {
             {/* TODO: dummy data */}
           </div>
         </div>
-        {issues.map((issue, index) => {
+        {issues.map((issue) => {
           return (
-            <div className={styles.issueBox} key={index}>
+            <div className={styles.issueBox} key={issue.id}>
               <div className={styles.icon}>
                 <IssueIcon color="green" />
               </div>
@@ -86,7 +86,7 @@ function IssuesList() {
                 <div className={styles.firstRow}>
                   <h3 className={styles.issueName}>{issue.title}</h3>
                   <div className={styles.labelsWrapper}>
-                    {issue.labels.map((label, idx) => {
+                    {issue.labels.map((label) => {
                       const backgroundColor = `#${label.color}`;
                       const textColor = getContrastYIQ(label.color);
                       const borderColor = darkenColor(label.color);
@@ -98,6 +98,7 @@ function IssuesList() {
                             border: `1px solid ${borderColor}`,
                           }}
                           className={styles.label}
+                          key={label.id}
                         >
                           {label.name}
                         </div>
