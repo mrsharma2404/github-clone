@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  max-width: 1216px;
+  width: calc(100% - 60px);
+  border-radius: 5px;
+}
+.issueBox {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  text-align: flex-start;
+  border-bottom: 1px solid #e0e0e0;
+  height: 62px;
+}
+.issueName {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.row {
+  display: flex;
+  gap: 10px;
+}
+.secondRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding-left: 26px;
+}
+.number {
+  font-size: 14px;
+  font-weight: 400;
+  color: #586069;
+}

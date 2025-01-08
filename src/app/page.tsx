@@ -1,3 +1,9 @@
+import IssuesList from "./components/IssuesList";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <IssuesList />
+    </div>
+  );
 }
