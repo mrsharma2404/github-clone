@@ -67,7 +67,9 @@ function IssuesList() {
           return (
             <div className={styles.issueBox} key={index}>
               <div className={styles.row}>
-                <IssueIcon />
+                <div className={styles.icon}>
+                  <IssueIcon />
+                </div>
                 <h3 className={styles.issueName}>{issue.title}</h3>
               </div>
               <div className={styles.secondRow}>

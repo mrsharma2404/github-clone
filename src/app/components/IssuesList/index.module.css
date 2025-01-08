@@ -12,6 +12,15 @@
   max-width: 1216px;
   width: calc(100% - 60px);
   border-radius: 5px;
+  @media only screen and (max-width: 768px) {
+    width: calc(100% - 30px);
+  }
+}
+.icon {
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
 }
 .issueBox {
   display: flex;
@@ -27,6 +36,9 @@
   text-align: left;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
+  @media only screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 .row {
   display: flex;
