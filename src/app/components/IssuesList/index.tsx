@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import IssueIcon from "@/app/icons/IssueIcon";
 import { useInView } from "react-intersection-observer";
+import { issuesDummyData } from "@/app/helpers/issuesDummyData";
 
 function IssuesList() {
   const { ref, inView } = useInView();
@@ -28,6 +29,11 @@ function IssuesList() {
     if (!response.ok) {
       console.log({ response });
       setReachedEnd(true);
+      if (issues.length === 0) {
+        // adding dummy data to show the UI if API fails due to rate limit
+        setIssues(issuesDummyData);
+      }
+
       return;
     }
     const data = await response.json();
