@@ -4,11 +4,14 @@ import styles from "./index.module.css";
 import IssueIcon from "@/app/icons/IssueIcon";
 import { useInView } from "react-intersection-observer";
 import { issuesDummyData } from "@/app/helpers/issuesDummyData";
+import { darkenColor, getContrastYIQ } from "@/app/helpers/color";
 
 interface Issue {
   id: number;
   number: number;
   title: string;
+  labels: { name: string; color: string }[];
+
   // Add other properties if needed from the API response
 }
 
@@ -63,17 +66,48 @@ function IssuesList() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.icon}>
+            <IssueIcon color="black" />
+          </div>
+          <div className={styles.title}>
+            617 Open
+            {/* TODO: dummy data */}
+          </div>
+        </div>
         {issues.map((issue, index) => {
           return (
             <div className={styles.issueBox} key={index}>
-              <div className={styles.row}>
-                <div className={styles.icon}>
-                  <IssueIcon />
-                </div>
-                <h3 className={styles.issueName}>{issue.title}</h3>
+              <div className={styles.icon}>
+                <IssueIcon color="green" />
               </div>
-              <div className={styles.secondRow}>
-                <div className={styles.issueNumber}>#{issue.number}</div>
+
+              <div>
+                <div className={styles.firstRow}>
+                  <h3 className={styles.issueName}>{issue.title}</h3>
+                  <div className={styles.labelsWrapper}>
+                    {issue.labels.map((label, idx) => {
+                      const backgroundColor = `#${label.color}`;
+                      const textColor = getContrastYIQ(label.color);
+                      const borderColor = darkenColor(label.color);
+                      return (
+                        <div
+                          style={{
+                            background: backgroundColor,
+                            color: textColor,
+                            border: `1px solid ${borderColor}`,
+                          }}
+                          className={styles.label}
+                        >
+                          {label.name}
+                        </div>
+                      );
+                    })}{" "}
+                  </div>
+                </div>
+                <div className={styles.secondRow}>
+                  <div className={styles.issueNumber}>#{issue.number}</div>
+                </div>
               </div>
             </div>
           );

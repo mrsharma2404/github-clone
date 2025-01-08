@@ -16,6 +16,15 @@
     width: calc(100% - 30px);
   }
 }
+.header {
+  display: flex;
+  background: #f4f4f4;
+  height: 55px;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 15px;
+  gap: 10px;
+}
 .icon {
   display: flex;
   align-items: center;
@@ -24,12 +33,13 @@
 }
 .issueBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 10px 15px;
   text-align: flex-start;
   border-bottom: 1px solid #e0e0e0;
   min-height: 62px;
   height: auto;
+  gap: 10px;
 }
 .issueName {
   font-size: 16px;
@@ -40,18 +50,36 @@
     font-size: 14px;
   }
 }
-.row {
+.firstRow {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .secondRow {
   display: flex;
   gap: 10px;
   margin-top: 10px;
-  padding-left: 26px;
 }
 .number {
   font-size: 14px;
   font-weight: 400;
   color: #586069;
+}
+.labelsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.label {
+  display: flex;
+  border-radius: 10px;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px 7px;
+  min-width: fit-content;
+  height: auto;
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
 }
