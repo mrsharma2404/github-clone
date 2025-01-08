@@ -5,10 +5,18 @@ import IssueIcon from "@/app/icons/IssueIcon";
 import { useInView } from "react-intersection-observer";
 import { issuesDummyData } from "@/app/helpers/issuesDummyData";
 
+interface Issue {
+  id: number;
+  number: number;
+  title: string;
+  // Add other properties if needed from the API response
+}
+
 function IssuesList() {
   const { ref, inView } = useInView();
 
-  const [issues, setIssues] = useState<any>([]);
+  const [issues, setIssues] = useState<Issue[]>([]);
+
   const [reachedEnd, setReachedEnd] = useState(false);
 
   const fetchIssues = async ({
@@ -55,7 +63,7 @@ function IssuesList() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        {issues.map((issue: any, index: number) => {
+        {issues.map((issue, index) => {
           return (
             <div className={styles.issueBox} key={index}>
               <div className={styles.row}>
